@@ -27,10 +27,7 @@ Route::get('/details/{post}',function($slug){
     //trova un post con chiave $slug e passalo alla vista "post"
 
     $post = Post::find($slug);
-    
-    if($post==false){
-        abort(404);
-    }
+
     
     return view('post',[ //ritorna vista e variabile $post = al post
         'post'=>$post

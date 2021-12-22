@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Cache;
 
 class Post
 {
@@ -25,46 +26,50 @@ class Post
     public static function find($slug)
     {
 
+        $post = Post::all()->firstWhere('slug', $slug);
+        if (!isset($post)) {
+            redirect('/');
+        }
+        /*
         $path = resource_path("/posts/$slug.html");
-
-        if (!file_exists($path)) {
-            return false;
-        } else {
-
+        else {
+             
             $document = YamlFrontMatter::parseFile($path); //trova documento corrispondente con header
             $post = new Post(
-                $document->title,
-                $document->publishDate,
-                $document->paragrafo,
-                $document->body(),
-                $document->slug,
+                    $document->title,
+                    $document->publishDate,
+                    $document->paragrafo,
+                    $document->body(),
+                    $document->slug
             );
             //creo un post con le info del document
 
             //file_get_contents($path);
             //cache()->remember("posts.{$slug}", 5, function ($path){  memorizza nella cache per 3600 secondi /return 
-            
-            return $post;
-        }
+            */
+        return $post;
     }
     public static function all()
     {
-        /*
-        $files = File::files(resource_path("posts/"));//tutti le path dei file
+
          
-        $posts= collect($files)->map(function ($file){ //| collezione = array post da lista file
 
-            $document = YamlFrontMatter::parseFile($file);
+        $posts = cache()->remember("posts",0, function () {
+            $files = File::files(resource_path("posts/"));//tutti le path dei file
+            return  collect($files)->map(function ($file) { //| collezione = array post da lista file
 
-            return new Post(
-                $document->title,
-                $document->publishDate, 
-                $document->paragrafo, 
-                $document->body(),
-                $document->slug
-            );
+                $document = YamlFrontMatter::parseFile($file);
+
+                return new Post(
+                    $document->title,
+                    $document->publishDate,
+                    $document->paragrafo,
+                    $document->body(),
+                    $document->slug
+                );
+            })->sortByDesc("publishDate");
         });
-*/
+        /*
         $i = 1;
         $posts = [];
         $post = Post::find($i);
@@ -73,6 +78,8 @@ class Post
             $i++;
             $post = Post::find($i);
         }
+        
+        */
         return $posts;
     }
 }
