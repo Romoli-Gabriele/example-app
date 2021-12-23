@@ -8,14 +8,7 @@
             <p class="mt-4 block text-gray-400 text-xs">
                 Published {{$post->publishDate}}
             </p>
-
-            <div class="flex items-center lg:justify-center text-sm mt-4">
-                <img src="/images/lary-avatar.svg" alt="Lary avatar">
-                <div class="ml-3 text-left">
-                    <h5 class="font-bold">Lary Laracore</h5>
-                    <h6>Mascot at Laracasts</h6>
-                </div>
-            </div>
+            <x-mascot type="true"></x-mascot>
         </div>
 
         <div class="col-span-8">
