@@ -72,7 +72,7 @@
                 <div class="flex-1 flex flex-col justify-between">
                     <header class="mt-8 lg:mt-0">
                         <div class="space-x-2">
-                            <x-techniquesand
+                            <x-techUp tech="#" update="#"></x-techUp>
                         </div>
 
                         <div class="mt-4">
@@ -81,7 +81,7 @@
                             </h1>
 
                             <span class="mt-2 block text-gray-400 text-xs">
-                                Published {{$post->publishDate}}
+                                Published <x-date date="{{$post->publishDate}}"></x-date>
                             </span>
                         </div>
                     </header>

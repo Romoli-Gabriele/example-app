@@ -6,7 +6,7 @@
             <img src="/images/illustration-{{$post->slug}}.png" alt="" class="rounded-xl">
 
             <p class="mt-4 block text-gray-400 text-xs">
-                Published {{$post->publishDate}}
+                Published <x-date date="{{$post->publishDate}}"></x-date>
             </p>
             <x-mascot type="true"></x-mascot>
         </div>
@@ -29,12 +29,7 @@
                 </a>
 
                 <div class="space-x-2">
-                    <a href="#"
-                        class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
-                        style="font-size: 10px">Techniques</a>
-                    <a href="#"
-                        class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold"
-                        style="font-size: 10px">Updates</a>
+                    <x-techUp tech="#" update="#"></x-techUp>
                 </div>
             </div>
 

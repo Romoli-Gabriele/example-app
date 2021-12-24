@@ -1,0 +1,1 @@
+<time><?= date("d/m/Y",$date);?></time><!-- formatta data-->

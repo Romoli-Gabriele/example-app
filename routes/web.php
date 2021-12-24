@@ -26,7 +26,7 @@ Route::get('/details/{post}',function($slug){
 
     //trova un post con chiave $slug e passalo alla vista "post"
 
-    $post = Post::find($slug);
+    $post = Post::findOrFail($slug);
 
     
     return view('post',[ //ritorna vista e variabile $post = al post

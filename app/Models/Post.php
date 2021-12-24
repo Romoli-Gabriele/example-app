@@ -22,11 +22,13 @@ class Post
         $this->completo = $completo;
         $this->slug = $slug;
     }
-
-    public static function find($slug)
+    public static function find($slug){
+        return Post::all()->firstWhere('slug', $slug);
+    }
+    public static function findOrFail($slug)
     {
 
-        $post = Post::all()->firstWhere('slug', $slug);
+        $post = Post::find($slug);
         if (!isset($post)) {
             redirect('/');
         }
@@ -54,7 +56,7 @@ class Post
 
          
 
-        $posts = cache()->remember("posts",0, function () {
+        $posts = cache()->remember("posts", 3600, function () {
             $files = File::files(resource_path("posts/"));//tutti le path dei file
             return  collect($files)->map(function ($file) { //| collezione = array post da lista file
 
