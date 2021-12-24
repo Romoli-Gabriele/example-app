@@ -32,4 +32,4 @@ Route::get('/details/{post}',function($slug){
     return view('post',[ //ritorna vista e variabile $post = al post
         'post'=>$post
     ]);
-})->whereNumber('post');
+});
