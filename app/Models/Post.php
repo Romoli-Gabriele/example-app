@@ -56,7 +56,7 @@ class Post
 
          
 
-        $posts = cache()->remember("posts", 3600, function () {
+        $posts = cache()->rememberForever("posts", function () {
             $files = File::files(resource_path("posts/"));//tutti le path dei file
             return  collect($files)->map(function ($file) { //| collezione = array post da lista file
 

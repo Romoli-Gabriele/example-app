@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateUsersTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. -->  php artisan migrate
      *
      * @return void
      */
@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations. ---> php artisan migrate:rollback (use batch to rollback only something)
      *
      * @return void
      */
