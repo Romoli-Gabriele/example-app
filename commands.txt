@@ -4,6 +4,9 @@ mysql -uroot -ppassword -hlocalhost —>launch cli mysql
 LARAVEL
 php artisan serve —> launch app
 php artisan tinker —> launch cli laravel
+php artisan migrate -> migrate Database
+php artisan migrate:rollback -> ctrl+Z
+php artisan migrate:fresh -> refresh the tables and delete the data
 
 
 PHP
