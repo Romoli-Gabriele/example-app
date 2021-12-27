@@ -17,19 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     
     return view('index', [
-        'posts'=> Post::all()//tutti i post
+        'posts'=> Post::all()  //tutti i post
     ]
 
 );
 });
-Route::get('/details/{post}',function($slug){
+Route::get('/details/{post}',function(Post $post){ //Route::get('/details/{post:slug}',function(Post $post){ --> cerca in base alla key slug
 
-    //trova un post con chiave $slug e passalo alla vista "post"
-
-    $post = Post::findOrFail($slug);
-
-    
+    //trova un post con chiave $id e passalo alla vista "post"
+    //$post = Post::findOrFail($id);
     return view('post',[ //ritorna vista e variabile $post = al post
-        'post'=>$post
+        'post' => $post // funziona con binding fra model di eloquent e route -> stesso nome laravel capisce che cerchiamo il post corrispondente
     ]);
 });

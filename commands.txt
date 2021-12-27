@@ -14,4 +14,4 @@ php -S localhost:8000 —>launch php server
 
 TINKER
 $users->pluck(‘name’) returns only the names of a collection
-
+$post->update(['column'=>'data']) change and save in to Database
