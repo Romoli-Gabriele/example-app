@@ -7,6 +7,7 @@ php artisan tinker —> launch cli laravel
 php artisan migrate -> migrate Database
 php artisan migrate:rollback -> ctrl+Z
 php artisan migrate:fresh -> refresh the tables and delete the data
+php artisan db:seed -> add some data to Database
 
 
 PHP

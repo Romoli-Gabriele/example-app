@@ -15,8 +15,14 @@ class Post extends Model
     {
         return slug;
     }*/
-    public function category(){
+    public $with = ['user', 'category'];//aggiunge user e category
+
+    public function category(){ //Molti a uno
+        //hasOne, hanMany, belongsTo, belongsToMany
         return $this->belongsTo(Category::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
     use HasFactory;

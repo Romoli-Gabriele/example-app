@@ -6,7 +6,7 @@
             <img src="/images/illustration-{{$post->id}}.png" alt="" class="rounded-xl">
 
             <p class="mt-4 block text-gray-400 text-xs">
-                Published <x-date date="{{$post->publishDate}}"></x-date>
+                Published {{$post->publishDate}}
             </p>
             <x-mascot type="true"></x-mascot>
         </div>
@@ -32,8 +32,12 @@
                     <x-techUp tech="#" update="#"></x-techUp>
                 </div>
             </div>
-
-            <h1 class="font-bold text-3xl lg:text-4xl mb-10">
+            <p>
+                By <a href="/users/{{$post->user->username}}">{{$post->user->name}}</a>
+                <b><a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a></b>
+            </p>
+            
+            <h1 class="font-bold text-3xl lg:text-4xl mb-10">{{$post->title}}</h1>
                 {!! $post->body !!}
             </div>
         </div>
