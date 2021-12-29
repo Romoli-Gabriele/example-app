@@ -19,9 +19,9 @@ class PostFactory extends Factory
             'user_id'=>random_int(1,5),
             'category_id'=>random_int(1,5),
             'title' => $title = $this->faker->sentence(),
-            'paragrafo'=> $this->faker->sentence(),
+            'paragrafo'=> '<p>'.implode('<p></p>',$this->faker->paragraphs(2)).'</p>',
             'slug'=> str_replace(' ','-',$title),
-            'body'=> $this->faker->paragraph(),
+            'body'=> '<p>'.implode('<p></p>',$this->faker->paragraphs(6)).'</p>',
         ];
     }
 }

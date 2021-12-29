@@ -1,8 +1,8 @@
 @extends('layout')
 @section('content')
 
-<x-header :categories="$categories"></x-header>
-
+<x-header :currentCategory="$currentCategory ?? null" :categories="$categories ?? ''"></x-header>
+<br>
 <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
     @foreach($posts as $post)
         
@@ -29,7 +29,7 @@
                         </div>
                     </header>
 
-                    <div class="text-sm mt-2">
+                    <div class="text-sm mt-2 space-y-4">
                         <p>
                             {!!$post->paragrafo !!}  <!-- per far funzionare html -->
                         </p>

@@ -44,12 +44,14 @@ Route::get('/categories/{category:slug}', function (Category $category) {
     return view('index', [
 
         'posts' => $category->posts,
-        'categories'=> Category::all()
+        'categories'=> Category::all(),
+        'currentCategory'=> $category
     ]);
 });
 
 Route::get('/users/{user:username}', function (User $user) {
     return view('index', [
-        'posts' => $user->posts
+        'posts' => $user->posts,
+        'categories'=> Category::all(),
     ]);
 });
