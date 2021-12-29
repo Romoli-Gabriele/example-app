@@ -22,7 +22,6 @@ class PostFactory extends Factory
             'paragrafo'=> $this->faker->sentence(),
             'slug'=> str_replace(' ','-',$title),
             'body'=> $this->faker->paragraph(),
-            'publishDate'=>$this->faker->date('Y-m-d', 'now')
         ];
     }
 }

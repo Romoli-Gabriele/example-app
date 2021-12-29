@@ -6,9 +6,9 @@
             <img src="/images/illustration-{{$post->id}}.png" alt="" class="rounded-xl">
 
             <p class="mt-4 block text-gray-400 text-xs">
-                Published {{$post->publishDate}}
+                Published <time>{{$post->created_at->diffForHumans()}}</time>
             </p>
-            <x-mascot type="true"></x-mascot>
+            <x-user :user="$post->user"></x-user>
         </div>
 
         <div class="col-span-8">
@@ -29,12 +29,12 @@
                 </a>
 
                 <div class="space-x-2">
-                    <x-techUp tech="#" update="#"></x-techUp>
+                    <x-category :category="$post->category"></x-category>
                 </div>
             </div>
             <p>
-                By <a href="/users/{{$post->user->username}}">{{$post->user->name}}</a>
-                <b><a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a></b>
+                
+                
             </p>
             
             <h1 class="font-bold text-3xl lg:text-4xl mb-10">{{$post->title}}</h1>

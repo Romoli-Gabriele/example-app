@@ -27,8 +27,8 @@ Route::get('/', function () {
     return view(
         'index',
         [
-
-            'posts' =>  Post::all()  //tutti i post con lazy load categories e user necessarie
+            'posts' =>  Post::latest()->get(), //tutti i post ordinati dal più nuovo al più vecchio
+            'categories'=> Category::all()
         ]
     );
 });
@@ -43,7 +43,8 @@ Route::get('/details/{post:slug}', function (Post $post) { //Route::get('/detail
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('index', [
 
-        'posts' => $category->posts
+        'posts' => $category->posts,
+        'categories'=> Category::all()
     ]);
 });
 
