@@ -16,7 +16,7 @@
         <!--  Category -->
         
         <div x-data="{show:false}" class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
-            <button @click="show = !show" class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">Category</button>
+            <button @click="show = !show" class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">Category</button><br>
             <div x-show="show">
                 @foreach ($categories as $category)
                     <a   href="/categories/{{$category->slug}}">{{$category->name}}</a>
