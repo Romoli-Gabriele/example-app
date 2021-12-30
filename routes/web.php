@@ -23,4 +23,4 @@ Route::get('/', [PostController::class,'index'])->name('home');
 
 Route::get('/details/{post:slug}',[PostController::class, 'post']);
 
-Route::get('/users/{user:username}', [PostController::class, 'autor']);
+//Route::get('/users/{user:username}', [PostController::class, 'autor']);

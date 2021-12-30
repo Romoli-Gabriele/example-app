@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,9 +10,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts.index',
+        return view(
+            'posts.index',
             [
-                'posts' =>  Post::latest()->filter(request(['search','category']))->get(), //tutti i post ordinati dal più nuovo al più vecchio filtrati con ricerca e categorie
+                'posts' =>  Post::latest()->filter(request(['search','category','author']))->get(), //tutti i post ordinati dal più nuovo al più vecchio filtrati con ricerca e categorie
             ]
         );
     }
@@ -23,11 +23,5 @@ class PostController extends Controller
             'post' => $post // funziona con binding fra model di eloquent e route -> stesso nome laravel capisce che cerchiamo il post corrispondente
         ]);
     }
-    
-    public function autor(User $user)
-    {
-        return view('posts.index', [
-            'posts' => $user->posts,
-        ]);
-    }
+
 }
