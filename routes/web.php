@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -18,40 +19,8 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', function () {
-    /* stampa nei /storage/logs le query 
-    DB::listen(function($query){
-        logger($query->sql, $query->bindings);
-    });*/
+Route::get('/', [PostController::class,'index'])->name('home');
 
-    return view(
-        'index',
-        [
-            'posts' =>  Post::latest()->get(), //tutti i post ordinati dal più nuovo al più vecchio
-            'categories'=> Category::all()
-        ]
-    );
-});
-Route::get('/details/{post:slug}', function (Post $post) { //Route::get('/details/{post:slug}',function(Post $post){ --> cerca in base alla key slug
+Route::get('/details/{post:slug}',[PostController::class, 'post']);
 
-    //trova un post con chiave $id e passalo alla vista "post"
-    //$post = Post::findOrFail($id);
-    return view('post', [ //ritorna vista e variabile $post = al post
-        'post' => $post // funziona con binding fra model di eloquent e route -> stesso nome laravel capisce che cerchiamo il post corrispondente
-    ]);
-});
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('index', [
-
-        'posts' => $category->posts,
-        'categories'=> Category::all(),
-        'currentCategory'=> $category
-    ]);
-});
-
-Route::get('/users/{user:username}', function (User $user) {
-    return view('index', [
-        'posts' => $user->posts,
-        'categories'=> Category::all(),
-    ]);
-});
+Route::get('/users/{user:username}', [PostController::class, 'autor']);

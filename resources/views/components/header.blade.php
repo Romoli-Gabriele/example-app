@@ -9,22 +9,7 @@
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4    ">
         <!--  Category -->
         
-        <x-dropdown>
-            <x-slot name="trigger">
-                    {{isset($currentCategory)? ucwords($currentCategory->name) : 'Categories'}}
-                    <x-down-arrow></x-down-arrow>
-            </x-slot>
-            <x-dropdown-item 
-                :active="!isset($currentCategory)" 
-                href="/">All</x-dropdown-item>
-            @foreach ($categories as $category)
-            <x-dropdown-item 
-            :active="isset($currentCategory)&&$category->is($currentCategory)" 
-            href="/categories/{{$category->slug}}">
-                {{$category->name}}
-            </x-dropdown-item>
-            @endforeach
-        </x-dropdown>
+        <x-category-dropdown></x-category-dropdown>
 
         <!-- Other Filters 
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
@@ -47,8 +32,8 @@
         </div>-->
         <!-- Search -->
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
-            <form method="GET" action="#">
-                <input type="text" name="search" placeholder="Find something" class="bg-transparent placeholder-black font-semibold text-sm">
+            <form method="GET" action="/">
+                <input type="text" value="{{request('search')}}" name="search" placeholder="Find something" class="bg-transparent placeholder-black font-semibold text-sm">
             </form>
         </div>
     </div>
