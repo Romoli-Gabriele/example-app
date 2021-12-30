@@ -13,7 +13,13 @@ class PostController extends Controller
         return view(
             'posts.index',
             [
-                'posts' =>  Post::latest()->filter(request(['search','category','author']))->get(), //tutti i post ordinati dal più nuovo al più vecchio filtrati con ricerca e categorie
+                'posts' =>  Post::latest()->filter(
+                    request([
+                        'search',
+                        'category',
+                        'author'
+                    ])
+                )->paginate(3)->withQueryString(), //tutti i post ordinati dal più nuovo al più vecchio filtrati con ricerca e categorie
             ]
         );
     }
@@ -23,5 +29,4 @@ class PostController extends Controller
             'post' => $post // funziona con binding fra model di eloquent e route -> stesso nome laravel capisce che cerchiamo il post corrispondente
         ]);
     }
-
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', [PostController::class,'index'])->name('home');
 
-Route::get('/details/{post:slug}',[PostController::class, 'post']);
+Route::get('details/{post:slug}',[PostController::class, 'post']);
 
-//Route::get('/users/{user:username}', [PostController::class, 'autor']);
+Route::get('register', [RegisterController::class, 'create']);
+Route::post('register', [RegisterController::class, 'store']);

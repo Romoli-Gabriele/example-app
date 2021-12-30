@@ -5,11 +5,11 @@
     </x-slot>
     <x-dropdown-item 
         :active="!isset($currentCategory)" 
-        href="/">All</x-dropdown-item>
+        href="/?{{ http_build_query(request()->except('category','page'))}}">All</x-dropdown-item>
     @foreach ($categories as $category)
     <x-dropdown-item 
     :active="isset($currentCategory)&&$category->is($currentCategory)" 
-    href="/?category={{$category->slug}}&{{ http_build_query(request()->except('category'))}}">
+    href="/?category={{$category->slug}}&{{ http_build_query(request()->except('category','page'))}}">
         {{$category->name}}
     </x-dropdown-item>
     @endforeach
