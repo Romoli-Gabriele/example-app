@@ -3,33 +3,13 @@
     <main class="max-w-lg mx-auto">
         <br>
         <br>
-        <form method="POST" action="/register" class="rounded-xl">
+        <form method="POST" action="/login" class="rounded-xl">
             <li class="list-group-item "
                 style="--tw-bg-opacity: 1;background-color: rgba(59,130,246,var(--tw-bg-opacity)); color:white">
                 @csrf
-                <h1>Register</h1>
-                <p>Please fill in this form to create an account.</p>
+                <h1>Login</h1>
+                <p>Please fill in this form to log in</p>
                 <hr>
-                <div class="row mb-3">
-                    <label class="col-sm-4 col-form-label" for="name"><b>Name</b></label>
-                    <div class="col-sm-7">
-                        <input class="form-control" style="width: 12rem; margin: 0" type="text" placeholder="Enter Name"
-                            name="name" value="{{ old('name') }}" required>
-                        @error('name')
-                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-4 col-form-label" for="username"><b>Username</b></label>
-                    <div class="col-sm-7">
-                        <input class="form-control" style="width: 12rem; margin: 0" type="text"
-                            placeholder="Enter Userame" name="username" value="{{ old('username') }}" required>
-                        @error('username')
-                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
-                </div>
                 <div class="row mb-3">
                     <label class="col-sm-4 col-form-label" for="email"><b>Email</b></label>
                     <div class="col-sm-7">
@@ -53,14 +33,14 @@
                 <hr>
                 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mx-auto">
-                    <button class="btn btn btn-danger mx-auto btn-lg" type="reset">Login</button>
-                    <button class="btn btn btn-success mx-auto btn-lg" type="submit">Register</button>
+                    <button class="btn btn btn-danger mx-auto btn-lg" type="reset">Reset</button>
+                    <button class="btn btn btn-success mx-auto btn-lg" type="submit">Login</button>
                 </div>
 
                 </div>
                 <br>
                 <div>
-                    <p style="text-align: center">Already have an account? <a style="color: white" href="#">Sign in</a>.</p>
+                    <p style="text-align: center">Already haven't an account? <a style="color: white" href="/register">Sign up</a>.</p>
                 </div>
             </li>
         </form>

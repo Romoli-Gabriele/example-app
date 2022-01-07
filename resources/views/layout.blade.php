@@ -29,12 +29,14 @@
             </div>
             @endif
             <div class="mt-8 md:mt-0">
+            @if (Auth::check())
+            <a href="/logout" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">Logout</a>
+            @else
                 <a href="/register" class="text-xs font-bold uppercase">Register</a>
-
-                <a href="/login" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                    Login
-                </a>
+                <a href="/login" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">Login</a>  
+            @endif
             </div>
+            
         </nav>
         @yield('content')
         <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">

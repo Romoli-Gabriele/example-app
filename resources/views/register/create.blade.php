@@ -60,7 +60,7 @@
                 </div>
                 <br>
                 <div>
-                    <p style="text-align: center">Already have an account? <a style="color: white" href="#">Sign in</a>.</p>
+                    <p style="text-align: center">Already have an account? <a style="color: white" href="/login">Sign in</a>.</p>
                 </div>
             </li>
         </form>
