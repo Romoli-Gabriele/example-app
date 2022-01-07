@@ -53,7 +53,7 @@
                 <hr>
                 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mx-auto">
-                    <button class="btn btn btn-danger mx-auto btn-lg" type="reset">Reset</button>
+                    <button class="btn btn btn-danger mx-auto btn-lg" type="reset">Login</button>
                     <button class="btn btn btn-success mx-auto btn-lg" type="submit">Register</button>
                 </div>
 

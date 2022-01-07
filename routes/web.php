@@ -26,3 +26,9 @@ Route::get('details/{post:slug}',[PostController::class, 'post']);
 
 Route::get('register', [RegisterController::class, 'create']);
 Route::post('register', [RegisterController::class, 'store']);
+
+Route::get('login', [LoginController::class, 'page']);
+Route::post('login', [LoginController::class, 'login']);
+
+
+
