@@ -1,6 +1,6 @@
 @props(['trigger'])
 
-<div  class="relative lg:inline-flex bg-gray-100 rounded-xl">
+<div  class="dropdown relative lg:inline-flex bg-gray-100 rounded-xl">
     <div  x-data="{show:false}">
         <!--button-->
         <button 
@@ -8,6 +8,7 @@
         class="flex-1 w-full appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold text-left inline-flex"
         >
             {{$trigger}}
+            <x-down-arrow></x-down-arrow>
         </button>
         <div x-show="show" class="absolute bg-gray-100 overflow-auto max-h-52 rounded-xl w-full">
             <!--SLOT-->

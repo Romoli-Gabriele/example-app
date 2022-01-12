@@ -1,9 +1,9 @@
 <x-dropdown>
     <x-slot name="trigger">
             {{isset($currentCategory)? ucwords($currentCategory->name) : 'Categories'}}
-            <x-down-arrow></x-down-arrow>
     </x-slot>
-    <x-dropdown-item 
+    <x-dropdown-item
+        x-show=""
         :active="!isset($currentCategory)" 
         href="/?{{ http_build_query(request()->except('category','page'))}}">All</x-dropdown-item>
     @foreach ($categories as $category)

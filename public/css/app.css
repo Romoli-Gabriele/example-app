@@ -1,0 +1,14 @@
+a{
+    text-decoration: none !important;
+}
+.navlink{
+    color: black;
+}
+.dropdown{
+    width: 140px;
+}
+.activeLink{
+    background-color: rgb(59,130,246);
+    color: white !important;
+    
+}
